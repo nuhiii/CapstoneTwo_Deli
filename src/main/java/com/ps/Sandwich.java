@@ -91,4 +91,15 @@ public class Sandwich extends Product {
         }
         return total;
     }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "size='" + size + '\'' +
+                ", bread='" + bread + '\'' +
+                ", toppings=" + toppings +
+                ", toasted=" + toasted +
+                ", price=" + price +
+                '}';
+    }
 }
