@@ -21,6 +21,74 @@ public class Sandwich extends Product {
 
     @Override
     public double calcPrice() {
-        return 0;
+        double total = 0.0;
+        switch (size) {
+            case "4\"":
+                total += 5.50;
+                break;
+            case "8\"":
+                total += 7.00;
+                break;
+            case "12\"":
+                total += 8.50;
+                break;
+        }
+
+        for (Topping topping : toppings) {
+            if (topping.getType().equals("Meat")) {
+                if (topping.isExtra()) {
+                    switch (size) {
+                        case "4\"":
+                            total += 0.50;
+                            break;
+                        case "8\"":
+                            total += 1.00;
+                            break;
+                        case "12\"":
+                            total += 1.50;
+                            break;
+                    }
+                } else {
+                    switch (size) {
+                        case "4\"":
+                            total += 1.00;
+                            break;
+                        case "8\"":
+                            total += 2.00;
+                            break;
+                        case "12\"":
+                            total += 3.00;
+                            break;
+                    }
+                }
+            } else if (topping.getType().equals("Cheese")) {
+                if (topping.isExtra()) {
+                    switch (size) {
+                        case "4\"":
+                            total += 0.30;
+                            break;
+                        case "8\"":
+                            total += 0.60;
+                            break;
+                        case "12\"":
+                            total += 0.90;
+                            break;
+                    }
+                } else {
+                    switch (size) {
+                        case "4\"":
+                            total += 0.75;
+                            break;
+                        case "8\"":
+                            total += 1.50;
+                            break;
+                        case "12\"":
+                            total += 2.25;
+                            break;
+                    }
+                }
+            }
+        }
+        return total;
     }
 }
