@@ -41,8 +41,9 @@ public class UserInterface {
             System.out.println("------------------------------");
             System.out.println("1) Add Sandwich");
             System.out.println("2) Add Drink");
-            System.out.println("3) Add Chips");
-            System.out.println("4) Checkout");
+            System.out.println("3) Add Drink");
+            System.out.println("4) Add Chips");
+            System.out.println("5) Checkout");
             System.out.println("0) Cancel Order");
             System.out.println("------------------------------");
             System.out.print("Selection: ");
@@ -55,12 +56,14 @@ public class UserInterface {
                     displayAddSandwichScreen();
                     break;
                 case 2:
+                    displayAddSignatureSandwichScreen();
+                case 3:
                     displayAddDrinkScreen();
                     break;
-                case 3:
+                case 4:
                     displayAddChipsScreen();
                     break;
-                case 4:
+                case 5:
                     int choice = displayCheckoutScreen();
                     if (choice == 3){
                         break;
@@ -74,7 +77,7 @@ public class UserInterface {
                     System.out.println("Invalid Choice. Try Again.\n");
                     break;
             }
-        } while (selection != 0);
+        } while (true);
     }
 
     public void displayAddSandwichScreen() {
@@ -105,6 +108,42 @@ public class UserInterface {
 
         Sandwich sandwich = new Sandwich(size, bread, toasted);
         displayAddToppingsScreen(sandwich);
+
+        currentOrder.addProduct(sandwich);
+    }
+
+    private void displayAddSignatureSandwichScreen() {
+        System.out.println("\nWelcome to the Signature Sandwich Screen!");
+        System.out.println("Please select your sandwich:");
+        System.out.println("------------------------------");
+        System.out.println("1) BLT");
+        System.out.println("2) Philly Cheese Steak");
+        System.out.println("------------------------------");
+
+        System.out.print("Selection: ");
+        int selection = scanner.nextInt();
+        scanner.nextLine();
+
+        Sandwich sandwich;
+        switch (selection){
+            case 1:
+                sandwich = new BLT();
+                break;
+            case 2:
+                sandwich = new PhillyCheeseSteak();
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                return;
+        }
+
+        System.out.println("Would you like to further customize this sandwich?");
+        System.out.println("Yes");
+        System.out.println("No");
+        boolean customize = scanner.nextLine().trim().equalsIgnoreCase("yes");
+        if (customize){
+            displayAddToppingsScreen(sandwich);
+        }
 
         currentOrder.addProduct(sandwich);
     }
