@@ -8,7 +8,7 @@ public class Chips extends Product {
     }
 
     @Override
-    public double calcPrice() {
+    protected double calcPrice() {
         return price = 1.50;
     }
 

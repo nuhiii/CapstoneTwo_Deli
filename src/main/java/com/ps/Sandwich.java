@@ -24,7 +24,7 @@ public class Sandwich extends Product {
     }
 
     @Override
-    public double calcPrice() {
+    protected double calcPrice() {
         price = 0.0;
         switch (size) {
             case "4\"":

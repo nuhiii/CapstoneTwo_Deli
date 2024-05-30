@@ -10,7 +10,7 @@ public class Drink extends Product {
     }
 
     @Override
-    public double calcPrice() {
+    protected double calcPrice() {
         return switch (size) {
             case "Small" -> price = 2.00;
             case "Medium" -> price = 2.50;

@@ -7,6 +7,6 @@ public abstract class Product {
         return calcPrice();
     }
 
-    public abstract double calcPrice();
+    protected abstract double calcPrice();
     public abstract String toString();
 }
