@@ -14,12 +14,13 @@ public class Order {
         this.products.add(product);
     }
 
-    public double checkout() {
+    public void orderDetails() {
         double total = 0.0;
         for (Product product : this.products) {
+            System.out.println(product);
             total += product.calcPrice();
         }
-        return total;
+        System.out.println("Total Price: $" + total);
     }
 
     public List<Product> getProducts() {
@@ -29,7 +30,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "products=" + products +
+                "products=" + this.products +
                 '}';
     }
 }

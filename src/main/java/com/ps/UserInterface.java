@@ -64,8 +64,9 @@ public class UserInterface {
                     displayCheckoutScreen();
                     break;
                 case 0:
-                    System.out.println("Cancelling Order.");
-                    break;
+                    currentOrder = new Order();
+                    System.out.println("Order has been cancelled.");
+                    return;
                 default:
                     System.out.println("Invalid Choice. Try Again.\n");
                     break;
@@ -212,6 +213,31 @@ public class UserInterface {
 
     private void displayCheckoutScreen() {
         System.out.println("\nWelcome to the Checkout Screen!");
+        System.out.println("These are the products in your current order:");
+        currentOrder.orderDetails();
+        System.out.println("Please confirm if you would like to proceed:");
+        System.out.println("------------------------------");
+        System.out.println("1) Confirm");
+        System.out.println("2) Cancel Order");
+        System.out.println("3) Go Back");
+        System.out.println("------------------------------");
+        System.out.print("Selection: ");
+        int selection = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (selection){
+            case 1:
+                FileManager.saveOrder(currentOrder);
+                currentOrder = new Order();
+                System.out.println("Checkout completed! Receipt confirmed!");
+                return;
+            case 2:
+                currentOrder = new Order();
+                System.out.println("Order has been cancelled.");
+                return;
+            case 3:
+                break;
+        }
     }
 
 }
