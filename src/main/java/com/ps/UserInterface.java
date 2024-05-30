@@ -101,7 +101,7 @@ public class UserInterface {
         System.out.println("Would you like the sandwich toasted?");
         System.out.println("Yes");
         System.out.println("No");
-        boolean toasted = scanner.nextLine().equalsIgnoreCase("yes");
+        boolean toasted = scanner.nextLine().trim().equalsIgnoreCase("yes");
 
         Sandwich sandwich = new Sandwich(size, bread, toasted);
         displayAddToppingsScreen(sandwich);
@@ -151,7 +151,7 @@ public class UserInterface {
                 break;
             } else {
                 System.out.println("Enter the name of the topping:");
-                String toppingName = scanner.nextLine();
+                String toppingName = scanner.nextLine().trim().toLowerCase();
                 String toppingType = getToppingType(selection);
                 boolean isPremium = false;
                 boolean isExtra = false;
@@ -160,7 +160,7 @@ public class UserInterface {
                     System.out.println("Would you like to add extra?");
                     System.out.println("Yes");
                     System.out.println("No");
-                    isExtra = scanner.nextLine().equalsIgnoreCase("yes");
+                    isExtra = scanner.nextLine().trim().equalsIgnoreCase("yes");
                 }
                 sandwich.addTopping(new Topping(toppingName, toppingType, isPremium, isExtra));
             }
@@ -190,7 +190,7 @@ public class UserInterface {
         scanner.nextLine();
 
         System.out.println("Enter drink flavor: ");
-        String flavor = scanner.nextLine();
+        String flavor = scanner.nextLine().trim().toLowerCase();
 
         Drink drink = new Drink(size, flavor);
         currentOrder.addProduct(drink);
@@ -208,7 +208,7 @@ public class UserInterface {
     private void displayAddChipsScreen() {
         System.out.println("\nWelcome to the Chips Screen!");
         System.out.println("Enter the chips you would like: ");
-        String chipsBrand = scanner.nextLine();
+        String chipsBrand = scanner.nextLine().trim().toUpperCase();
 
         Chips chips = new Chips(chipsBrand);
         currentOrder.addProduct(chips);
