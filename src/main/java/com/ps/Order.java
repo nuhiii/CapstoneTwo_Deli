@@ -10,7 +10,7 @@ public class Order {
         this.products = new ArrayList<>();
     }
 
-    public void add(Product product) {
+    public void addProduct(Product product) {
         this.products.add(product);
     }
 
