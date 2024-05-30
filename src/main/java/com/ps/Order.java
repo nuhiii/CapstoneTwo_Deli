@@ -5,8 +5,10 @@ import java.util.ArrayList;
 
 public class Order {
     private List<Product> products;
+    private String orderID;
 
     public Order() {
+        this.orderID = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         this.products = new ArrayList<>();
     }
 
@@ -25,6 +27,10 @@ public class Order {
 
     public List<Product> getProducts() {
         return this.products;
+    }
+
+    public String getOrderID() {
+        return orderID;
     }
 
     @Override
