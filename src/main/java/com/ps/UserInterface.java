@@ -9,7 +9,7 @@ public class UserInterface {
     public void displayHomeScreen(){
         int selection;
         do{
-            System.out.println("Welcome To The DELI-cious Sandwich Shop!");
+            System.out.println("\nWelcome To The DELI-cious Sandwich Shop!");
             System.out.println("Please select from the appropriate menu options:");
             System.out.println("------------------------------");
             System.out.println("1) New Order");
