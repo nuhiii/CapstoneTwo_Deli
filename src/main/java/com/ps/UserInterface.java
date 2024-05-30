@@ -1,5 +1,6 @@
 package com.ps;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -16,19 +17,25 @@ public class UserInterface {
             System.out.println("------------------------------");
             System.out.print("Selection: ");
 
-            selection = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                selection = scanner.nextInt();
+                scanner.nextLine();
 
-            switch (selection){
-                case 1:
-                    displayOrderScreen();
-                    break;
-                case 0:
-                    System.out.println("Thank you for visiting!");
-                    break;
-                default:
-                    System.out.println("Invalid Choice. Try Again.\n");
-                    break;
+                switch (selection) {
+                    case 1:
+                        displayOrderScreen();
+                        break;
+                    case 0:
+                        System.out.println("Thank you for visiting!");
+                        break;
+                    default:
+                        System.out.println("Invalid Choice. Try Again.\n");
+                        break;
+                }
+            } catch (InputMismatchException e){
+                System.out.println("ERROR! Invalid Input Type. Please enter a number!\n");
+                scanner.nextLine();
+                selection = -99;
             }
         } while (selection != 0);
     }
@@ -40,7 +47,7 @@ public class UserInterface {
             System.out.println("Please select from the appropriate menu options:");
             System.out.println("------------------------------");
             System.out.println("1) Add Sandwich");
-            System.out.println("2) Add Drink");
+            System.out.println("2) Add Signature Sandwich");
             System.out.println("3) Add Drink");
             System.out.println("4) Add Chips");
             System.out.println("5) Checkout");
@@ -48,34 +55,40 @@ public class UserInterface {
             System.out.println("------------------------------");
             System.out.print("Selection: ");
 
-            selection = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                selection = scanner.nextInt();
+                scanner.nextLine();
 
-            switch (selection){
-                case 1:
-                    displayAddSandwichScreen();
-                    break;
-                case 2:
-                    displayAddSignatureSandwichScreen();
-                case 3:
-                    displayAddDrinkScreen();
-                    break;
-                case 4:
-                    displayAddChipsScreen();
-                    break;
-                case 5:
-                    int choice = displayCheckoutScreen();
-                    if (choice == 3){
+                switch (selection) {
+                    case 1:
+                        displayAddSandwichScreen();
                         break;
-                    }
-                    return;
-                case 0:
-                    currentOrder = new Order();
-                    System.out.println("Order has been cancelled.");
-                    return;
-                default:
-                    System.out.println("Invalid Choice. Try Again.\n");
-                    break;
+                    case 2:
+                        displayAddSignatureSandwichScreen();
+                        break;
+                    case 3:
+                        displayAddDrinkScreen();
+                        break;
+                    case 4:
+                        displayAddChipsScreen();
+                        break;
+                    case 5:
+                        int choice = displayCheckoutScreen();
+                        if (choice == 3) {
+                            break;
+                        }
+                        return;
+                    case 0:
+                        currentOrder = new Order();
+                        System.out.println("Order has been cancelled.");
+                        return;
+                    default:
+                        System.out.println("Invalid Choice. Try Again.\n");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("ERROR! Invalid Input Type. Please enter a number!\n");
+                scanner.nextLine();
             }
         } while (true);
     }
@@ -91,14 +104,16 @@ public class UserInterface {
         System.out.println("------------------------------");
 
         System.out.print("Selection: ");
-        String bread = getBreadType(scanner.nextInt());
+        String bread = getBreadType(getValidIntInput());
         scanner.nextLine();
 
         System.out.println("Select your sandwich size:");
         System.out.println("1) 4\"");
         System.out.println("2) 8\"");
         System.out.println("3) 12\"");
-        String size = getSandwichSize(scanner.nextInt());
+
+        System.out.print("Selection: ");
+        String size = getSandwichSize(getValidIntInput());
         scanner.nextLine();
 
         System.out.println("Would you like the sandwich toasted?");
@@ -121,7 +136,7 @@ public class UserInterface {
         System.out.println("------------------------------");
 
         System.out.print("Selection: ");
-        int selection = scanner.nextInt();
+        int selection = getValidIntInput();
         scanner.nextLine();
 
         Sandwich sandwich;
@@ -184,7 +199,7 @@ public class UserInterface {
             System.out.println("------------------------------");
 
             System.out.print("Selection: ");
-            selection = scanner.nextInt();
+            selection = getValidIntInput();
             scanner.nextLine();
 
             if (selection == 0) {
@@ -226,7 +241,7 @@ public class UserInterface {
         System.out.println("3) Large");
         System.out.println("------------------------------");
         System.out.print("Selection: ");
-        String size = getDrinkSize(scanner.nextInt());
+        String size = getDrinkSize(getValidIntInput());
         scanner.nextLine();
 
         System.out.println("Enter drink flavor: ");
@@ -282,6 +297,18 @@ public class UserInterface {
                 break;
         }
         return selection;
+    }
+
+    private int getValidIntInput() {
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("ERROR! Invalid Input Type. Please enter a number!");
+                System.out.print("Selection: ");
+                scanner.nextLine();
+            }
+        }
     }
 
 }
