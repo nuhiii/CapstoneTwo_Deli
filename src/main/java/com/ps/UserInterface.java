@@ -61,8 +61,11 @@ public class UserInterface {
                     displayAddChipsScreen();
                     break;
                 case 4:
-                    displayCheckoutScreen();
-                    break;
+                    int choice = displayCheckoutScreen();
+                    if (choice == 3){
+                        break;
+                    }
+                    return;
                 case 0:
                     currentOrder = new Order();
                     System.out.println("Order has been cancelled.");
@@ -211,7 +214,7 @@ public class UserInterface {
         currentOrder.addProduct(chips);
     }
 
-    private void displayCheckoutScreen() {
+    private int displayCheckoutScreen() {
         System.out.println("\nWelcome to the Checkout Screen!");
         System.out.println("These are the products in your current order:");
         currentOrder.orderDetails();
@@ -230,14 +233,15 @@ public class UserInterface {
                 FileManager.saveOrder(currentOrder);
                 currentOrder = new Order();
                 System.out.println("Checkout completed! Receipt confirmed!");
-                return;
+                break;
             case 2:
                 currentOrder = new Order();
                 System.out.println("Order has been cancelled.");
-                return;
+                break;
             case 3:
                 break;
         }
+        return selection;
     }
 
 }
