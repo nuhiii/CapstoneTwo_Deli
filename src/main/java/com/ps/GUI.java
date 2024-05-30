@@ -74,5 +74,14 @@ public class GUI {
         JButton checkoutButton = new JButton("Checkout");
         checkoutButton.setBounds(10, 180, 150, 25);
         panel.add(checkoutButton);
+
+        JButton backButton = new JButton("Go Back");
+        backButton.setBounds(10, 220, 150, 25);
+        panel.add(backButton);
+
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            displayHomeScreen();
+        });
     }
 }
