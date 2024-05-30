@@ -36,6 +36,17 @@ public class Sandwich extends Product {
 
         for (Topping topping : toppings) {
             if (topping.getType().equals("Meat")) {
+                switch (size) {
+                    case "4\"":
+                        total += 1.00;
+                        break;
+                    case "8\"":
+                        total += 2.00;
+                        break;
+                    case "12\"":
+                        total += 3.00;
+                        break;
+                }
                 if (topping.isExtra()) {
                     switch (size) {
                         case "4\"":
@@ -48,20 +59,19 @@ public class Sandwich extends Product {
                             total += 1.50;
                             break;
                     }
-                } else {
-                    switch (size) {
-                        case "4\"":
-                            total += 1.00;
-                            break;
-                        case "8\"":
-                            total += 2.00;
-                            break;
-                        case "12\"":
-                            total += 3.00;
-                            break;
-                    }
                 }
             } else if (topping.getType().equals("Cheese")) {
+                switch (size) {
+                    case "4\"":
+                        total += 0.75;
+                        break;
+                    case "8\"":
+                        total += 1.50;
+                        break;
+                    case "12\"":
+                        total += 2.25;
+                        break;
+                }
                 if (topping.isExtra()) {
                     switch (size) {
                         case "4\"":
@@ -74,18 +84,6 @@ public class Sandwich extends Product {
                             total += 0.90;
                             break;
                     }
-                } else {
-                    switch (size) {
-                        case "4\"":
-                            total += 0.75;
-                            break;
-                        case "8\"":
-                            total += 1.50;
-                            break;
-                        case "12\"":
-                            total += 2.25;
-                            break;
-                    }
                 }
             }
         }
@@ -94,12 +92,21 @@ public class Sandwich extends Product {
 
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "size='" + size + '\'' +
-                ", bread='" + bread + '\'' +
-                ", toppings=" + toppings +
-                ", toasted=" + toasted +
-                ", price=" + price +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(size).append(" ").append(bread).append(" sandwich");
+        if (toasted) sb.append(" (toasted)");
+        sb.append(" with ");
+        for (Topping topping : toppings) {
+            sb.append(topping.getName());
+            if (topping.isPremium()) {
+                sb.append(" (premium)");
+            }
+            if (topping.isExtra()) {
+                sb.append(" (extra)");
+            }
+            sb.append(", ");
+        }
+        sb.append("[END]");
+        return sb.toString();
     }
 }
