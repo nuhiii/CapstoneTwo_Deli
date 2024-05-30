@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UserInterface {
     private Order currentOrder = new Order();
     private static Scanner scanner = new Scanner(System.in);
-    public static void displayHomeScreen(){
+    public void displayHomeScreen(){
         int selection;
         do{
             System.out.println("Welcome To The DELI-cious Sandwich Shop!");
@@ -33,7 +33,7 @@ public class UserInterface {
         } while (selection != 0);
     }
 
-    public static void displayOrderScreen() {
+    public void displayOrderScreen() {
         int selection;
         do{
             System.out.println("\nWelcome to the Order Screen!");
@@ -73,7 +73,7 @@ public class UserInterface {
         } while (selection != 0);
     }
 
-    public static void displayAddSandwichScreen() {
+    public void displayAddSandwichScreen() {
         System.out.println("\nWelcome to the Sandwich Screen!");
         System.out.println("Please select your bread type:");
         System.out.println("------------------------------");
@@ -101,9 +101,11 @@ public class UserInterface {
 
         Sandwich sandwich = new Sandwich(size, bread, toasted);
         displayAddToppingsScreen(sandwich);
+
+        currentOrder.addProduct(sandwich);
     }
 
-    public static String getBreadType(int selection){
+    public String getBreadType(int selection){
         // IntelliJ enhanced switch suggestion
         return switch (selection) {
             case 1 -> "White";
@@ -114,7 +116,7 @@ public class UserInterface {
         };
     }
 
-    public static String getSandwichSize(int selection){
+    public String getSandwichSize(int selection){
         // IntelliJ enhanced switch suggestion
         return switch (selection) {
             case 1 -> "4\"";
@@ -124,10 +126,10 @@ public class UserInterface {
         };
     }
 
-    private static void displayAddToppingsScreen(Sandwich sandwich) {
+    private void displayAddToppingsScreen(Sandwich sandwich) {
         int selection;
         while (true) {
-            System.out.println("Welcome to the Toppings Screen!");
+            System.out.println("\nWelcome to the Toppings Screen!");
             System.out.println("Please select your topping type:");
             System.out.println("------------------------------");
             System.out.println("1) Meat (steak, ham, salami, roast beef, chicken, bacon)");
@@ -136,6 +138,8 @@ public class UserInterface {
             System.out.println("4) Sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette)");
             System.out.println("0) Done adding toppings");
             System.out.println("------------------------------");
+
+            System.out.print("Selection: ");
             selection = scanner.nextInt();
             scanner.nextLine();
 
@@ -159,7 +163,7 @@ public class UserInterface {
         }
     }
 
-    private static String getToppingType(int selection){
+    private String getToppingType(int selection){
         return switch (selection) {
             case 1 -> "Meat";
             case 2 -> "Cheese";
@@ -169,13 +173,45 @@ public class UserInterface {
             default -> "Invalid";
         };
     }
-    private static void displayAddDrinkScreen() {
+    private void displayAddDrinkScreen() {
+        System.out.println("\nWelcome to the Drinks Screen!");
+        System.out.println("Select drink size:");
+        System.out.println("------------------------------");
+        System.out.println("1) Small");
+        System.out.println("2) Medium");
+        System.out.println("3) Large");
+        System.out.println("------------------------------");
+        System.out.print("Selection: ");
+        String size = getDrinkSize(scanner.nextInt());
+        scanner.nextLine();
+
+        System.out.println("Enter drink flavor: ");
+        String flavor = scanner.nextLine();
+
+        Drink drink = new Drink(size, flavor);
+        currentOrder.addProduct(drink);
     }
 
-    private static void displayAddChipsScreen() {
+    private String getDrinkSize(int selection) {
+        return switch (selection) {
+            case 1 -> "Small";
+            case 2 -> "Medium";
+            case 3 -> "Large";
+            default -> "Invalid";
+        };
     }
 
-    private static void displayCheckoutScreen() {
+    private void displayAddChipsScreen() {
+        System.out.println("\nWelcome to the Chips Screen!");
+        System.out.println("Enter the chips you would like: ");
+        String chipsBrand = scanner.nextLine();
+
+        Chips chips = new Chips(chipsBrand);
+        currentOrder.addProduct(chips);
+    }
+
+    private void displayCheckoutScreen() {
+        System.out.println("\nWelcome to the Checkout Screen!");
     }
 
 }

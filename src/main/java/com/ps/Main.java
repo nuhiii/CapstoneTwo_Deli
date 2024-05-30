@@ -2,6 +2,7 @@ package com.ps;
 
 public class Main {
     public static void main(String[] args) {
-        UserInterface.displayHomeScreen();
+        UserInterface userInterface = new UserInterface();
+        userInterface.displayHomeScreen();
     }
 }
