@@ -140,6 +140,7 @@ public class UserInterface {
             System.out.println("2) Cheese (american, provolone, cheddar, swiss)");
             System.out.println("3) Regular Toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms)");
             System.out.println("4) Sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette)");
+            System.out.println("5) Sides (au jus, sauce)");
             System.out.println("0) Done adding toppings");
             System.out.println("------------------------------");
 

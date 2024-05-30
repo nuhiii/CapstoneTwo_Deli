@@ -19,18 +19,22 @@ public class Sandwich extends Product {
         toppings.add(topping);
     }
 
+    public List<Topping> getToppings() {
+        return toppings;
+    }
+
     @Override
     public double calcPrice() {
-        double total = 0.0;
+        price = 0.0;
         switch (size) {
             case "4\"":
-                total += 5.50;
+                price += 5.50;
                 break;
             case "8\"":
-                total += 7.00;
+                price += 7.00;
                 break;
             case "12\"":
-                total += 8.50;
+                price += 8.50;
                 break;
         }
 
@@ -38,56 +42,56 @@ public class Sandwich extends Product {
             if (topping.getType().equals("Meat")) {
                 switch (size) {
                     case "4\"":
-                        total += 1.00;
+                        price += 1.00;
                         break;
                     case "8\"":
-                        total += 2.00;
+                        price += 2.00;
                         break;
                     case "12\"":
-                        total += 3.00;
+                        price += 3.00;
                         break;
                 }
                 if (topping.isExtra()) {
                     switch (size) {
                         case "4\"":
-                            total += 0.50;
+                            price += 0.50;
                             break;
                         case "8\"":
-                            total += 1.00;
+                            price += 1.00;
                             break;
                         case "12\"":
-                            total += 1.50;
+                            price += 1.50;
                             break;
                     }
                 }
             } else if (topping.getType().equals("Cheese")) {
                 switch (size) {
                     case "4\"":
-                        total += 0.75;
+                        price += 0.75;
                         break;
                     case "8\"":
-                        total += 1.50;
+                        price += 1.50;
                         break;
                     case "12\"":
-                        total += 2.25;
+                        price += 2.25;
                         break;
                 }
                 if (topping.isExtra()) {
                     switch (size) {
                         case "4\"":
-                            total += 0.30;
+                            price += 0.30;
                             break;
                         case "8\"":
-                            total += 0.60;
+                            price += 0.60;
                             break;
                         case "12\"":
-                            total += 0.90;
+                            price += 0.90;
                             break;
                     }
                 }
             }
         }
-        return total;
+        return price;
     }
 
     @Override

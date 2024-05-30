@@ -5,12 +5,11 @@ public class Chips extends Product {
 
     public Chips(String brand) {
         this.brand = brand;
-        this.price = 1.50;
     }
 
     @Override
     public double calcPrice() {
-        return price;
+        return price = 1.50;
     }
 
     @Override
