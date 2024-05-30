@@ -35,8 +35,11 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "products=" + this.products +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Order ID: ").append(orderID).append("\n");
+        for (Product product : products) {
+            sb.append(product.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }
