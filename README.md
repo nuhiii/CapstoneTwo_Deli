@@ -15,27 +15,30 @@ This Java CLI application allows users to create and manage deli sandwich orders
 ## Project Structure
 - **Main.java**: Entry point of the application. Triggers the display of the home screen.
 
+- **GUI.java**: Allows users to interact via a graphical user interface.
+
+- **UserInterface.java**: Displays screens and handles user interactions with logic flow for the CLI.
+
 - **Order.java**: Manages a collection of products (sandwiches, drinks, chips) and calculates the total price of the order.
 
 - **Product.java**: Abstract base class for different types of products (sandwiches, drinks, chips).
 
-- **Sandwich.java**: Class representing a sandwich with size, bread type, toasting option, and toppings.
+    - **Sandwich.java**: Class representing a sandwich with size, bread type, toasting option, and toppings.
+ 
+        - **SignatureSandwich.java** - Abstract class for various sandwich templates (BLT, Philly, etc).
+ 
+            - **BLT.java** - Class template for BLT sandwich that can be further customized.
+
+            - **PhillyCheeseSteak.java** - Class template for Philly sandwich that can be further customized.
+         
+    - **Drink.java**: Class representing a drink with size and flavor.
+
+    - **Chip.java**: Class representing chips with specific brand option.
 
 - **Topping.java**: Class representing a topping that can be added to a sandwich.
 
-- **Drink.java**: Class representing a drink with size and flavor.
-
-- **Chip.java**: Class representing chips with specific brand option.
-
-- **SignatureSandwich.java** - Abstract base class for various sandwich templates (BLT, Philly, etc).
-
-- **BLT.java** - Class template for BLT sandwich that can be further customized.
-
-- **PhillyCheeseSteak.java** - Class template for Philly sandwich that can be further customized.
-
 - **FileManager.java**: Handles saving the order details to a file.
 
-- **UserInterface.java**: Handles user interactions and display logic for the CLI.
 
 ## Future Improvements
 - Further implement graphical user interface (GUI) (using Swing).
