@@ -1,6 +1,6 @@
 # DELI-cious Java CLI Application
 
-This Java CLI application allows users to create and manage deli sandwich orders, and can include drinks, and chips. Users can customize their sandwiches with various toppings and can see the total price of all their orders on a receipt.
+This Java CLI application allows users to create and manage sandwich orders, with option to include drinks, and chips. Users can customize their sandwiches with various toppings and can see the total price of all their orders on a receipt.
 
 ## Features
 - **Home Screen** Option to choose between CLI or GUI display.
