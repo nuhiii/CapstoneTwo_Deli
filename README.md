@@ -60,7 +60,7 @@ if (!directory.exists()) {
 ```
 
 ## Course Through With Images
-### GUI (WIP)
+### GUI (Work In Progress)
 <img width="546" alt="Screenshot 2024-05-30 at 10 53 22 PM" src="https://github.com/nuhiii/CapstoneTwo_Deli/assets/143645213/cd57ea4d-79d8-4419-a4c9-9e1dd5b001ce">
 <img width="546" alt="Screenshot 2024-05-30 at 10 54 13 PM" src="https://github.com/nuhiii/CapstoneTwo_Deli/assets/143645213/4b6e54ca-80b2-4af3-8c19-37d5d4e8fa62">
 
