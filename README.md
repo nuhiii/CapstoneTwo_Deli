@@ -81,5 +81,4 @@ if (!directory.exists()) {
 ### Receipt (file)
 <img width="814" alt="Screenshot 2024-05-30 at 11 02 25 PM" src="https://github.com/nuhiii/CapstoneTwo_Deli/assets/143645213/debd9323-0a0c-4679-8a4a-66a1d2931c29">
 
-That's all! Thank you!
-~ Nuhi
+#### That's all! Thank you! ~ Nuhi
