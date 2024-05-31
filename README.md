@@ -45,8 +45,8 @@ This Java CLI application allows users to create and manage sandwich orders, wit
 - Integrate database for persistent storage of orders.
 - Enhance error handling and input validation for user interactions.
 - Add functionality for customizing drink flavors and chip types.
-- Allow ability to remove items.
-- Check to make sure certain items are available (in toppings).
+- Allow ability to remove, switch, and change out items.
+- Check to make sure that any inputted items are available.
 
 ## Interesting Code Snippet
 ### Specific Formatter using Date and Time for generating OrderID on Receipt
