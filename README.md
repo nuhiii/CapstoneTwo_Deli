@@ -45,5 +45,8 @@ This Java CLI application allows users to create and manage deli sandwich orders
 - Allow ability to remove items.
 - Check to make sure certain items are available (in toppings).
 
-## Interesting Code Snippets
-### TBD
+## Interesting Code Snippet
+### Specific Formatter using Date and Time for generating OrderID on Receipt
+``` java
+this.orderID = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+```
