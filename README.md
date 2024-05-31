@@ -74,6 +74,8 @@ if (!directory.exists()) {
 <img width="546" alt="Screenshot 2024-05-30 at 11 01 01 PM" src="https://github.com/nuhiii/CapstoneTwo_Deli/assets/143645213/74ca714b-c7f7-4f38-b32f-6a65726cc189">
 <img width="546" alt="Screenshot 2024-05-30 at 11 01 38 PM" src="https://github.com/nuhiii/CapstoneTwo_Deli/assets/143645213/bb92d9a4-7426-4b8d-bb28-17cedee347ce">
 <img width="546" alt="Screenshot 2024-05-30 at 11 02 00 PM" src="https://github.com/nuhiii/CapstoneTwo_Deli/assets/143645213/d34db72f-3318-491a-9e19-6dd72a371cbd">
+
+### Receipt (file)
 <img width="814" alt="Screenshot 2024-05-30 at 11 02 25 PM" src="https://github.com/nuhiii/CapstoneTwo_Deli/assets/143645213/debd9323-0a0c-4679-8a4a-66a1d2931c29">
 
 That's all! Thank you!
