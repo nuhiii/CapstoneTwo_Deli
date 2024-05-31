@@ -37,7 +37,7 @@ This Java CLI application allows users to create and manage deli sandwich orders
 
 - **Topping.java**: Class representing a topping that can be added to a sandwich.
 
-- **FileManager.java**: Handles saving the order details to a file.
+- **FileManager.java**: Handles saving the order details to a file and generates a receipt.
 
 
 ## Future Improvements
